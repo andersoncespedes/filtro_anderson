@@ -1,13 +1,16 @@
-## Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega de los pedidos que no han sido entregados a tiempo.
+### Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega de los pedidos que no han sido entregados a tiempo.
 ```
 http://localhost:5096/api/pedido/notontime
 ```
-## Codigo
+### Codigo
 ```
 public async Task<IEnumerable<Pedido>> NotOnTime (){
         return await _context.Pedido.Where(e => e.FechaEsperada < e.FechaEntrega).ToListAsync();
     }
 ```
+### Explicacion 
+Uso el Metodo where para buscar el pedido cuya fecha esperada sea menor a la fecha de entrega
+
 ## Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega de los pedidos que no han sido entregados a tiempo.
 ```
 http://localhost:5096/api/cliente/GetNoPaid
